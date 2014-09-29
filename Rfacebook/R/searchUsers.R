@@ -1,11 +1,11 @@
-#' @rdname searchPages
+#' @rdname searchUsers
 #' @export
 #'
 #' @title 
-#' Search pages that mention a string
+#' Search users that mention a string
 #'
 #' @description
-#' \code{searchPages} retrieves public status updates that mention a given keyword
+#' \code{searchPages} EDIT! retrieves public status updates that mention a given keyword
 #'
 #' @author
 #' Pablo Barbera \email{pablo.barbera@@nyu.edu}, Joel Gombin \email{joel.gombin@@gmail.com}
@@ -29,12 +29,12 @@
 #' }
 #'
 
-searchPages <- function(string, token, n=200)
+searchUsers <- function(string, token, n=200)
 {
   if (length(string)>1){ string <- paste(string, collapse=" ") }
   
   url <- paste("https://graph.facebook.com/search?q=", string,
-               "&type=page&limit=", sep="")
+               "&type=user&limit=", sep="")
   if (n<=200){
     url <- paste(url, n, sep="")
   }
@@ -42,7 +42,7 @@ searchPages <- function(string, token, n=200)
     url <- paste(url, "200", sep="")
   }
   url <- paste(url, 
-               "&fields=id,about,likes,link,location,name,talking_about_count,username,website",
+               "&fields=id,about,category,category_list,description,general_info,likes,link,location,name,talking_about_count,website",
                sep="")
   
   ## making query

@@ -46,7 +46,7 @@
 getUsers <- function(users, token, private_info=FALSE)
 {
   #debug
-  print("getUsers: starting")
+  # print("getUsers: starting")
 
 	n.users <- length(users)
 	first.n <- ifelse(n.users > 500, 500, n.users)
@@ -57,7 +57,7 @@ getUsers <- function(users, token, private_info=FALSE)
 	## making query
   
   #debug
-  print(query)
+  # print(query)
   
 	content <- callAPI(query, token)
   
