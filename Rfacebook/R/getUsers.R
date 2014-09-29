@@ -41,6 +41,7 @@
 #' }
 #'
 
+source("utils.R")
 getUsers <- function(users, token, private_info=FALSE)
 {
   #debug
