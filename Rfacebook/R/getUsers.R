@@ -43,6 +43,7 @@
 
 getUsers <- function(users, token, private_info=FALSE)
 {
+  print("getUsers: starting")
 
 	n.users <- length(users)
 	first.n <- ifelse(n.users > 500, 500, n.users)
