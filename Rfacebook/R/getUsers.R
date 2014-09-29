@@ -43,6 +43,7 @@
 
 getUsers <- function(users, token, private_info=FALSE)
 {
+  #debug
   print("getUsers: starting")
 
 	n.users <- length(users)
@@ -52,10 +53,16 @@ getUsers <- function(users, token, private_info=FALSE)
 	## first query: checking what users are actual users vs pages
 	query <- paste0('https://graph.facebook.com/?ids=', users.query)
 	## making query
+  
+  #debug
+  print(query)
 	content <- callAPI(query, token)
-	if (length(content$error_code)>0){
+  
+	if (length(content$error_code)>0)
+  {
 		stop(content$error_msg, ". Querying too many users?")
 	}	
+  
 	actual.users <- which(unlist(lapply(content, function(x) is.null(x$category))))
 	pages <- which(unlist(lapply(content, function(x) !is.null(x$category))))	
 	## getting data for users	
