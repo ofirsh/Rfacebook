@@ -41,7 +41,8 @@
 #' }
 #'
 
-source("utils.R")
+# source("C:/Develop/SocialCV/Rfacebook/Rfacebook/R/utils.R")
+# source("utils.R")
 getUsers <- function(users, token, private_info=FALSE)
 {
   #debug
